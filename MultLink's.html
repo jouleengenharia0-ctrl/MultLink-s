@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JouleLab - Sistema de Links</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0a2540 0%, #1a3a5f 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        header {
+            margin-bottom: 40px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo-img {
+            width: 45px;
+            height: 45px;
+            margin-right: 15px;
+            border-radius: 8px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a8d2ff;
+            margin-bottom: 40px;
+        }
+        
+        .buttons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #1e4a76 0%, #2a5c8f 100%);
+            border: none;
+            border-radius: 15px;
+            padding: 25px 20px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #2a5c8f 0%, #3a7cc4 100%);
+        }
+        
+        .btn-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #FFD700;
+        }
+        
+        .btn-text {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #cce0ff;
+            opacity: 0.9;
+        }
+        
+        footer {
+            margin-top: 30px;
+            padding: 20px;
+            text-align: center;
+            color: #a8d2ff;
+            font-size: 1.1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+        }
+        
+        .footer-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .solar-icon {
+            color: #FFD700;
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .buttons-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="Imagens/ÍCONE Joule.png" alt="JouleLab" class="logo-img">
+                <h1>JouleLab Energia Solar</h1>
+            </div>
+            <p class="subtitle">Sistema de links para facilitar seu trabalho</p>
+        </header>
+        
+        <main>
+            <div class="buttons-container">
+                <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/Dimensionamento-solar/')">
+                    <div class="btn-icon">📊</div>
+                    Dimensionamento Solar
+                    <div class="btn-text"> Dimensionamento necessária para seu sistema</div>
+                </button>
+                
+                <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/Procura-o/')">
+                    <div class="btn-icon">📝</div>
+                    Gerador de Procuração
+                    <div class="btn-text">Crie procurações para seus clientes</div>
+                </button>
+                
+                <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/Calculadora-de-Aumento-de-Carga-El-trica/')">
+                    <div class="btn-icon">⚡</div>
+                    Calculadora de Aumento de Carga
+                    <div class="btn-text">Calcule aumentos na carga elétrica</div>
+                </button>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="footer-text">
+                <span>JouleLab Energia Solar</span>
+                <span class="solar-icon">⚡</span>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function openLink(url) {
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
