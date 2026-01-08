@@ -61,6 +61,15 @@
             margin-bottom: 40px;
         }
         
+        /* Controle de Visibilidade das Páginas */
+        .page {
+            display: none; /* Esconde por padrão */
+        }
+        
+        .page.active {
+            display: block; /* Mostra apenas a ativa */
+        }
+        
         .buttons-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -91,11 +100,26 @@
             box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
             background: linear-gradient(135deg, #2a5c8f 0%, #3a7cc4 100%);
         }
+
+        /* Botão Especial de Navegação */
+        .btn-nav {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #0a2540;
+        }
+
+        .btn-nav .btn-text {
+            color: #0a2540;
+            font-weight: bold;
+        }
         
         .btn-icon {
             font-size: 2.5rem;
             margin-bottom: 15px;
             color: #FFD700;
+        }
+
+        .btn-nav .btn-icon {
+            color: #0a2540;
         }
         
         .btn-text {
@@ -128,17 +152,8 @@
         }
         
         @media (max-width: 600px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .buttons-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .btn {
-                padding: 20px 15px;
-            }
+            h1 { font-size: 2rem; }
+            .buttons-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -149,46 +164,70 @@
                 <img src="Imagens/ÍCONE Joule.png" alt="JouleLab" class="logo-img">
                 <h1>JouleLab Energia Solar</h1>
             </div>
-            <p class="subtitle">Sistema de links para facilitar seu trabalho</p>
+            <p id="main-subtitle" class="subtitle">Sistema de links para facilitar seu trabalho</p>
         </header>
         
         <main>
-            <div class="buttons-container">
-                <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/Dimensionamento-solar/')">
-                    <div class="btn-icon">📊</div>
-                    Dimensionamento Solar
-                    <div class="btn-text">Calcule a potência necessária para seu sistema</div>
-                </button>
-                
-                <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/Procura-o/')">
-                    <div class="btn-icon">📝</div>
-                    Gerador de Procuração
-                    <div class="btn-text">Crie procurações para seus clientes</div>
-                </button>
-                
-                <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/Calculadora-de-Aumento-de-Carga-El-trica/')">
-                    <div class="btn-icon">⚡</div>
-                    Calculadora de Aumento de Carga
-                    <div class="btn-text">Calcule aumentos na carga elétrica</div>
-                </button>
-                
-                <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/Calculadora-de-Rateio-de-Energia-Solar/')">
-                    <div class="btn-icon">🔋</div>
-                    Rateio de Energia Solar
-                    <div class="btn-text">Calcule o rateio de energia entre unidades</div>
-                </button>
+            <div id="page1" class="page active">
+                <div class="buttons-container">
+                    <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/Dimensionamento-solar/')">
+                        <div class="btn-icon">📊</div>
+                        Dimensionamento Solar
+                        <div class="btn-text">Calcule a potência necessária</div>
+                    </button>
+                    
+                    <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/Procura-o/')">
+                        <div class="btn-icon">📝</div>
+                        Gerador de Procuração
+                        <div class="btn-text">Crie procurações para clientes</div>
+                    </button>
+                    
+                    <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/Calculadora-de-Aumento-de-Carga-El-trica/')">
+                        <div class="btn-icon">⚡</div>
+                        Aumento de Carga
+                        <div class="btn-text">Calcule aumentos na carga elétrica</div>
+                    </button>
+                    
+                    <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/Calculadora-de-Rateio-de-Energia-Solar/')">
+                        <div class="btn-icon">🔋</div>
+                        Rateio de Energia
+                        <div class="btn-text">Calcule o rateio entre unidades</div>
+                    </button>
 
-                 <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/Emissor-de-Proposta---Sistema-Fotovoltaico/')">
-                    <div class="btn-icon">📋</div>
-                    Emissor de Proposta
-                    <div class="btn-text">Emissor de Proposta na Sua Mão </div>
-                </button>
+                    <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/Emissor-de-Proposta---Sistema-Fotovoltaico/')">
+                        <div class="btn-icon">📋</div>
+                        Emissor de Proposta
+                        <div class="btn-text">Proposta na sua mão</div>
+                    </button>
 
-                <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/Controle-de-portal/')">
-                    <div class="btn-icon">💡</div>
-                    Painel de Controle Joule
-                    <div class="btn-text">Painel de Controle Joule </div>
-                </button>
+                    <button class="btn btn-nav" onclick="changePage('page2', 'Documentação e Registros')">
+                        <div class="btn-icon">➡️</div>
+                        Mais Ferramentas
+                        <div class="btn-text">Acesse a segunda página</div>
+                    </button>
+                </div>
+            </div>
+
+            <div id="page2" class="page">
+                <div class="buttons-container">
+                    <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/Controle-de-portal/')">
+                        <div class="btn-icon">💡</div>
+                        Painel de Controle Joule
+                        <div class="btn-text">Gestão interna Joule</div>
+                    </button>
+
+                    <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/Registro-Inmetro-Joule/')">
+                        <div class="btn-icon">📜</div>
+                        Registro Inmetro Joule
+                        <div class="btn-text">Consulte registros oficiais</div>
+                    </button>
+
+                    <button class="btn btn-nav" onclick="changePage('page1', 'Sistema de links para facilitar seu trabalho')">
+                        <div class="btn-icon">⬅️</div>
+                        Voltar
+                        <div class="btn-text">Página anterior</div>
+                    </button>
+                </div>
             </div>
         </main>
         
@@ -201,8 +240,24 @@
     </div>
 
     <script>
+        // Função para abrir links externos
         function openLink(url) {
             window.open(url, '_blank');
+        }
+
+        // Função para trocar de página dentro do mesmo arquivo
+        function changePage(pageId, subtitleText) {
+            // Esconde todas as páginas
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            
+            // Mostra a página desejada
+            document.getElementById(pageId).classList.add('active');
+            
+            // Altera o subtítulo para combinar com a seção
+            document.getElementById('main-subtitle').innerText = subtitleText;
+
+            // Rola para o topo para melhor experiência
+            window.scrollTo(0, 0);
         }
     </script>
 </body>
