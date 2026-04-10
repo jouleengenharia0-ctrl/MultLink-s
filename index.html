@@ -61,13 +61,12 @@
             margin-bottom: 40px;
         }
         
-        /* Controle de Visibilidade das Páginas */
         .page {
-            display: none; /* Esconde por padrão */
+            display: none;
         }
         
         .page.active {
-            display: block; /* Mostra apenas a ativa */
+            display: block;
         }
         
         .buttons-container {
@@ -101,7 +100,6 @@
             background: linear-gradient(135deg, #2a5c8f 0%, #3a7cc4 100%);
         }
 
-        /* Botão Especial de Navegação */
         .btn-nav {
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
             color: #0a2540;
@@ -150,44 +148,42 @@
             color: #FFD700;
             font-size: 1.2rem;
         }
-        
-        @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            .buttons-container { grid-template-columns: 1fr; }
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <div class="logo">
-                <img src="Imagens/ÍCONE Joule.png" alt="JouleLab" class="logo-img">
+                <img src="Imagens/ÍCONE Joule.png" class="logo-img">
                 <h1>JouleLab Energia Solar</h1>
             </div>
             <p id="main-subtitle" class="subtitle">Sistema de links para facilitar seu trabalho</p>
         </header>
         
         <main>
+
+            <!-- PAGE 1 -->
             <div id="page1" class="page active">
                 <div class="buttons-container">
+                    
                     <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/Dimensionamento-solar/')">
                         <div class="btn-icon">📊</div>
                         Dimensionamento Solar
                         <div class="btn-text">Calcule a potência necessária</div>
                     </button>
-                    
+
                     <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/Procura-o/')">
                         <div class="btn-icon">📝</div>
                         Gerador de Procuração
                         <div class="btn-text">Crie procurações para clientes</div>
                     </button>
-                    
+
                     <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/Calculadora-de-Aumento-de-Carga-El-trica/')">
                         <div class="btn-icon">⚡</div>
                         Aumento de Carga
                         <div class="btn-text">Calcule aumentos na carga elétrica</div>
                     </button>
-                    
+
                     <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/Calculadora-de-Rateio-de-Energia-Solar/')">
                         <div class="btn-icon">🔋</div>
                         Rateio de Energia
@@ -205,11 +201,14 @@
                         Mais Ferramentas
                         <div class="btn-text">Acesse a segunda página</div>
                     </button>
+
                 </div>
             </div>
 
+            <!-- PAGE 2 -->
             <div id="page2" class="page">
                 <div class="buttons-container">
+
                     <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/Controle-de-portal/')">
                         <div class="btn-icon">💡</div>
                         Painel de Controle Joule
@@ -230,7 +229,7 @@
 
                     <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/CONTRATO-DE-LOCA-O-DE-IM-VEL/')">
                         <div class="btn-icon">🏢</div>
-                        Emissor de contrato  locação de imóveis
+                        Emissor de contrato locação de imóveis
                         <div class="btn-text">Contrato</div>
                     </button>
 
@@ -240,15 +239,49 @@
                         <div class="btn-text">Calculadora</div>
                     </button>
 
+                    <!-- NOVO BOTÃO -->
+                    <button class="btn btn-nav" onclick="changePage('page3', 'Ferramentas Extras')">
+                        <div class="btn-icon">➡️</div>
+                        Mais Links
+                        <div class="btn-text">Acesse a terceira página</div>
+                    </button>
+
                     <button class="btn btn-nav" onclick="changePage('page1', 'Sistema de links para facilitar seu trabalho')">
                         <div class="btn-icon">⬅️</div>
                         Voltar
                         <div class="btn-text">Página anterior</div>
                     </button>
+
                 </div>
             </div>
+
+            <!-- PAGE 3 -->
+            <div id="page3" class="page">
+                <div class="buttons-container">
+
+                    <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/SolarCalc/')">
+                        <div class="btn-icon">☀️</div>
+                        SolarCalc
+                        <div class="btn-text">Calculadora solar avançada</div>
+                    </button>
+
+                    <button class="btn" onclick="openLink('https://jouleengenharia0-ctrl.github.io/Separador-de-PDF/')">
+                        <div class="btn-icon">📄</div>
+                        Separador de PDF
+                        <div class="btn-text">Separe arquivos PDF facilmente</div>
+                    </button>
+
+                    <button class="btn btn-nav" onclick="changePage('page2', 'Documentação e Registros')">
+                        <div class="btn-icon">⬅️</div>
+                        Voltar
+                        <div class="btn-text">Página anterior</div>
+                    </button>
+
+                </div>
+            </div>
+
         </main>
-        
+
         <footer>
             <div class="footer-text">
                 <span>JouleLab Energia Solar</span>
@@ -258,23 +291,14 @@
     </div>
 
     <script>
-        // Função para abrir links externos
         function openLink(url) {
             window.open(url, '_blank');
         }
 
-        // Função para trocar de página dentro do mesmo arquivo
         function changePage(pageId, subtitleText) {
-            // Esconde todas as páginas
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            
-            // Mostra a página desejada
             document.getElementById(pageId).classList.add('active');
-            
-            // Altera o subtítulo para combinar com a seção
             document.getElementById('main-subtitle').innerText = subtitleText;
-
-            // Rola para o topo para melhor experiência
             window.scrollTo(0, 0);
         }
     </script>
